@@ -1,0 +1,12 @@
+{% extends 'fproject/base.html' %}
+{% block goal %}
+	{% for goal in goals %}
+		<div class="goals">
+		    <div class="date">
+		        <p>Estimated Date: {{ goal.estimated_date }}</p>
+		    </div>
+		    <h1><a href="">{{ goal.name }}</a></h1>
+		    <p>{{ goal.amount }}</p>
+		</div>
+	{% endfor %}
+{% endblock %}

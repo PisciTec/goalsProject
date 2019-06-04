@@ -1,37 +1,13 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Financial Project </title>
-	</head>
-	<body>
-		{% for goal in goals %}
-			<div>
-				<h1><a href="/"> {{goal.author}}</a></h1>
-				<ul>
-				<h3>
-					<li>Name: {{goal.name}}</li>
-					<li>Priority:</li>
-					<li>Amount:{{goal.amount}}</li>
-					<li>Type:</li>
-					<li>Estimated Date:{{goal.estimated_date}}</li>
-				</h3>
-			</ul>
-			</div>
-		{% endfor %}
-		{% for post in posts %}
-			<div>
-				<h1><a href="/"> {{post.author}}</a></h1>
-				<ul>
-				<h3>
-					<li>Title: {{post.title}}</li>
-					<li>Author: {{post.author}}</li>
-					<li>Text:{{post.text}}</li>
-					<li>Published Date:{{post.published_date}}</li>
-				</h3>
-			</ul>
-			</div>
-		{% endfor %}
-		<p>Hi There</p>
-		<p>It Works</p>
-	</body>
-</html>
+{% extends 'fproject/base.html' %}
+
+{% block post %}
+	{% for post in posts %}
+		<div class="post">
+		    <div class="date">
+		        <p>published: {{ post.published_date }}</p>
+		    </div>
+		    <h1><a href="">{{ post.title }}</a></h1>
+		    <p>{{ post.text|linebreaksbr }}</p>
+		</div>		
+	{% endfor %}
+{% endblock %}
