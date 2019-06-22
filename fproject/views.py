@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Post, Goal
 from django.utils import timezone
 
@@ -10,3 +10,6 @@ def post_list(request):
 def goal_list(request):
 	goals = Goal.objects.all()
 	return render(request, 'fproject/goals.html', {'goals': goals})
+def post_detail(request,pk):
+	post = get_object_or_404(Post, pk=pk)
+	return render(request, 'fproject/post_detail.html', {'post': post})
