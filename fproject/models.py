@@ -26,4 +26,14 @@ class Goal(models.Model):
 		self.created_date = timezone.now()
 		self.save()
 	def __str__(self):
-		return self.name	
+		return self.name
+class Start_Value(models.Model):
+	author = models.ForeignKey('auth.User', on_delete = models.CASCADE)
+	name = models.CharField(max_length = 300)
+	amount = models.DecimalField(max_digits=10 ,decimal_places = 2)
+	created_date = models.DateTimeField(default = timezone.now)
+	def publish(self):
+		self.created_date = timezone.now()
+		self.save()
+	def __str__(self):
+		return self.name
