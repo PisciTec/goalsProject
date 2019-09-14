@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django import forms
-# Create your models here.
+# Create your models here.s
 
 class Post(models.Model):
 	"""docstring for Post"""
